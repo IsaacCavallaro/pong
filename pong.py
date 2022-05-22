@@ -25,6 +25,13 @@ paddle_two.penup()
 paddle_two.goto(350, 0)
 
 # Ball
+ball = turtle.Turtle()
+ball.speed(0)
+ball.shape("square")
+ball.color("white")
+ball.penup()
+ball.goto(0, 0)
+
 
 # Main game loop
 while True:
