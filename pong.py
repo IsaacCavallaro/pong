@@ -31,6 +31,8 @@ ball.shape("square")
 ball.color("white")
 ball.penup()
 ball.goto(0, 0)
+ball.dx = .5
+ball.dy = .5
 
 # Move paddle_one up by 20 pixels
 def paddle_one_up():
@@ -67,3 +69,27 @@ window.onkeypress(paddle_two_down, "Down") # Call paddle_two_up when the down ar
 # Main game loop
 while True:
     window.update()
+
+    # Move the ball 
+    ball.setx(ball.xcor() + ball.dx)
+    ball.sety(ball.ycor() + ball.dy)
+
+    # Top Border
+    if ball.ycor() > 290:
+        ball.sety(290)
+        ball.dy *= -1
+
+    # Bottom Border
+    if ball.ycor() < -290:
+        ball.sety(-290)
+        ball.dy *= -1
+
+    # Right Border
+    if ball.xcor() > 390:
+        ball.goto(0, 0)
+        ball.dx *= -1
+
+    # Left Border
+    if ball.xcor() < -390:
+        ball.goto(0, 0)
+        ball.dx *= -1
