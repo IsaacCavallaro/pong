@@ -1,4 +1,5 @@
 import turtle
+import os
 
 window = turtle.Screen()
 window.title("Pong")
@@ -91,11 +92,13 @@ while True:
     if ball.ycor() > 290:
         ball.sety(290)
         ball.dy *= -1
+        os.system("afplay bounce.wav&")
 
     # Bottom Border
     if ball.ycor() < -290:
         ball.sety(-290)
         ball.dy *= -1
+        os.system("afplay bounce.wav&")
 
     # Right Border
     if ball.xcor() > 390:
@@ -118,8 +121,10 @@ while True:
     if (ball.xcor() > 340 and ball.xcor() < 350) and (ball.ycor() < paddle_two.ycor() + 40 and ball.ycor() > paddle_two.ycor() -40):
         ball.setx(340)
         ball.dx *= -1
+        os.system("afplay bounce.wav&")
 
     # Left Paddle and ball collisions
     if (ball.xcor() < -340 and ball.xcor() > -350) and (ball.ycor() < paddle_one.ycor() + 40 and ball.ycor() > paddle_one.ycor() -40):
         ball.setx(-340)
         ball.dx *= -1
+        os.system("afplay bounce.wav&")
