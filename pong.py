@@ -34,6 +34,16 @@ ball.goto(0, 0)
 ball.dx = .4
 ball.dy = .4
 
+# Pen
+pen = turtle.Turtle()
+pen.speed(0)
+pen.color("white")
+pen.penup()
+pen.hideturtle()
+pen.goto(0, 260)
+pen.write("Player A: 0  Player B: 0", align="center", font=("Courier", 24, "normal"))
+
+
 # Move paddle_one up by 20 pixels
 def paddle_one_up():
     y = paddle_one.ycor()
