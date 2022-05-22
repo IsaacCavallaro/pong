@@ -31,8 +31,8 @@ ball.shape("square")
 ball.color("white")
 ball.penup()
 ball.goto(0, 0)
-ball.dx = .5
-ball.dy = .5
+ball.dx = .4
+ball.dy = .4
 
 # Move paddle_one up by 20 pixels
 def paddle_one_up():
@@ -92,4 +92,14 @@ while True:
     # Left Border
     if ball.xcor() < -390:
         ball.goto(0, 0)
+        ball.dx *= -1
+
+    # Right Paddle and ball collisions
+    if (ball.xcor() > 340 and ball.xcor() < 350) and (ball.ycor() < paddle_two.ycor() + 40 and ball.ycor() > paddle_two.ycor() -40):
+        ball.setx(340)
+        ball.dx *= -1
+
+    # Left Paddle and ball collisions
+    if (ball.xcor() < -340 and ball.xcor() > -350) and (ball.ycor() < paddle_one.ycor() + 40 and ball.ycor() > paddle_one.ycor() -40):
+        ball.setx(-340)
         ball.dx *= -1
